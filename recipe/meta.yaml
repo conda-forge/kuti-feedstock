@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
 
 requirements:
@@ -22,7 +22,7 @@ requirements:
   run:
     - future
     - h5py >=2.10.0,<3.0.0
-    - matplotlib
+    - matplotlib-base
     - munch
     - numpy
     - opencv
