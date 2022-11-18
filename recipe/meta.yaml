@@ -1,5 +1,5 @@
 {% set name = "kuti" %}
-{% set version = "0.9.7" %}
+{% set version = "0.9.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6c7b92652234d1f3ae379e837a0025f30c8950c46fca40ab43181ac45194dddb
+  sha256: b3aeeaa89b10b5e0e86d327912ac5256b894f1dc8d81de733e3baa355cbb10e4
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
 
 requirements:
@@ -43,7 +43,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: "Keras training management utilities."
+  summary: Keras training management utilities.
   dev_url: https://github.com/subpic/ku/tree/master
 
 extra:
