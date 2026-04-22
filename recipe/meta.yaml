@@ -6,18 +6,18 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 6c7b92652234d1f3ae379e837a0025f30c8950c46fca40ab43181ac45194dddb
 
 build:
   noarch: python
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
 
 requirements:
   host:
     - pip
-    - python >=3.6,<3.9
+    - python {{ python_min }}
     - poetry
   run:
     - future
@@ -28,13 +28,15 @@ requirements:
     - opencv
     - pandas
     - pillow >=7,<8
-    - python >=3.6,<3.9
+    - python >={{ python_min }},<3.9
     - scikit-image >=0.16.2,<0.17.0
     - scikit-learn >=0.22.1,<0.23.0
     - scipy
     - tensorflow
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - kuti
 
